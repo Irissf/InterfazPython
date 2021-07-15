@@ -1,6 +1,17 @@
 from tkinter import *
+from tkinter import messagebox
 
 root = Tk()
+
+#-----------------------Message Box------------------------------
+
+def infoAdicional():
+    #importante importar messagebox especificamente
+    messagebox.showinfo("titulo","texto que queremos mostrar")
+    valor = messagebox.askquestion("Salir","¿Quieres salir?")
+    if valor == "yes":
+        root.destroy()
+        
 
 #---------------------------------Menú---------------------------
 barraMenu = Menu(root)
@@ -15,7 +26,8 @@ archivoMenu.add_command(label="Abrir")
 archivoMenu.add_command(label="Guardar")
 #colocar una barra
 archivoMenu.add_separator()
-archivoMenu.add_command(label="Salir")
+archivoMenu.add_command(label="Salir", command=infoAdicional)
+#ventana emergente
 
 
 archivoEdición=Menu(barraMenu)
